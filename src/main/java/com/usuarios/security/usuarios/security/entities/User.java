@@ -1,9 +1,10 @@
 package com.usuarios.security.usuarios.security.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 public class User {
@@ -14,18 +15,20 @@ public class User {
     private String lastname;
     private String location;
     private byte age;
-    private String user_type;
+    private String user_role;
 
-    public String getUser_type() {
-        return user_type;
+
+    @OneToOne
+    @JoinColumn(name = "user_credential_id")
+    private UserCredentials credentials;
+
+
+    public String getName() {
+        return name;
     }
 
-    public void setUser_type(String user_type) {
-        this.user_type = user_type;
-    }
-
-    public Long getId() {
-        return id;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLastname() {
@@ -36,12 +39,12 @@ public class User {
         this.lastname = lastname;
     }
 
-    public String getName() {
-        return name;
+    public byte getAge() {
+        return age;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAge(byte age) {
+        this.age = age;
     }
 
     public String getLocation() {
@@ -52,11 +55,23 @@ public class User {
         this.location = location;
     }
 
-    public byte getAge() {
-        return age;
+    public String getUser_role() {
+        return user_role;
     }
 
-    public void setAge(byte age) {
-        this.age = age;
+    public void setUser_role(String user_role) {
+        this.user_role = user_role;
+    }
+
+    public UserCredentials getCredentials() {
+        return credentials;
+    }
+
+    public void setCredentials(UserCredentials credentials) {
+        this.credentials = credentials;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

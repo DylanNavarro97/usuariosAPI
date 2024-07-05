@@ -1,7 +1,10 @@
 package com.usuarios.security.usuarios.security.controllers;
 
 import com.usuarios.security.usuarios.security.entities.User;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.usuarios.security.usuarios.security.services.UserService;
 
@@ -14,8 +17,8 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public User createUser(@RequestBody User user){
-        return userService.createUser(user);
+    public ResponseEntity<User> createUser(@RequestBody User user){
+        return new ResponseEntity<User>(userService.createUser(user), HttpStatus.CREATED);
     }
 
     @GetMapping
