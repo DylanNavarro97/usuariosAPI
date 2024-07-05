@@ -1,6 +1,7 @@
 package com.usuarios.security.usuarios.security.controllers;
 
 import com.usuarios.security.usuarios.security.entities.User;
+import com.usuarios.security.usuarios.security.exceptions.CustomException;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,11 +14,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 public class UserController {
+
+
     @Autowired
     private UserService userService;
 
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user){
+    public ResponseEntity<User> createUser(@RequestBody User user) throws CustomException {
         return new ResponseEntity<User>(userService.createUser(user), HttpStatus.CREATED);
     }
 
@@ -27,17 +30,17 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable Long id){
+    public User getUserById(@PathVariable Long id) throws CustomException {
         return userService.getUserById(id);
     }
 
     @PutMapping("/{id}")
-    public User updateUser(@RequestBody User user ,@PathVariable Long id){
+    public User updateUser(@RequestBody User user ,@PathVariable Long id) throws CustomException {
         return userService.updateUser(user, id);
     }
 
     @DeleteMapping("/{id}")
-    public String deleteUser(@PathVariable Long id){
+    public String deleteUser(@PathVariable Long id) throws CustomException {
         return userService.deleteUser(id);
     }
 }
