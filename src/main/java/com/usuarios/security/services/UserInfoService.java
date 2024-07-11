@@ -17,8 +17,6 @@ public class UserInfoService {
 
     @Autowired
     UserInfoRepository userRepo;
-    @Autowired
-    UserCredentialsRepository userCredentialsRepo;
 
     public UserInfo createUserInfo(UserInfo userInfo, Long userCredentialsId) throws CustomException {
         try{
