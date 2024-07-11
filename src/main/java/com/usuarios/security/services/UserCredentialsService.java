@@ -20,7 +20,6 @@ public class UserCredentialsService {
         } catch (Exception e){
             throw new CustomException(new ResponseDto("400", e.getMessage()));
         }
-
     }
 
 
