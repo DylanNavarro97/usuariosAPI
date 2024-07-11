@@ -1,10 +1,6 @@
-package com.usuarios.security.usuarios.security.entities;
+package com.usuarios.security.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 public class UserCredentials {
@@ -16,7 +12,7 @@ public class UserCredentials {
     private String password;
 
     @OneToOne(mappedBy = "credentials", cascade = CascadeType.ALL)
-    private User user;
+    private UserInfo userInfo;
 
     public Long getId() {
         return id;
@@ -46,11 +42,11 @@ public class UserCredentials {
         this.username = username;
     }
 
-    public User getUser() {
-        return user;
+    public UserInfo getUser() {
+        return userInfo;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(UserInfo userInfo) {
+        this.userInfo = userInfo;
     }
 }

@@ -1,14 +1,13 @@
-package com.usuarios.security.usuarios.security.dto;
+package com.usuarios.security.dto;
 
 public class ResponseDto {
+    private String code;
+    private String message;
 
     public ResponseDto(String code, String message) {
         this.code = code;
         this.message = message;
     }
-
-    private String code;
-    private String message;
 
     public String getCode() {
         return code;

@@ -1,4 +1,4 @@
-package com.usuarios.security.usuarios.security;
+package com.usuarios.security;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

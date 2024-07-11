@@ -1,11 +1,10 @@
-package com.usuarios.security.usuarios.security.handler;
+package com.usuarios.security.handler;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.usuarios.security.usuarios.security.exceptions.CustomException;
+import com.usuarios.security.exceptions.CustomException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -13,8 +12,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @ControllerAdvice
-public class SecurityExceptionHandler extends ResponseEntityExceptionHandler {
-
+public class UserExceptionHandler extends ResponseEntityExceptionHandler {
 
     final ObjectMapper mapper = new ObjectMapper();
 

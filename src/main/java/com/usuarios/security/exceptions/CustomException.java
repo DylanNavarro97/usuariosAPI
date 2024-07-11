@@ -1,4 +1,4 @@
-package com.usuarios.security.usuarios.security.exceptions;
+package com.usuarios.security.exceptions;
 
 public class CustomException extends Exception{
 
@@ -20,9 +20,5 @@ public class CustomException extends Exception{
 
     public Object getErrorObject() {
         return errorObject;
-    }
-
-    public void setErrorObject(Object errorObject) {
-        this.errorObject = errorObject;
     }
 }

@@ -1,4 +1,4 @@
-package com.usuarios.security.usuarios.security;
+package com.usuarios.security;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
