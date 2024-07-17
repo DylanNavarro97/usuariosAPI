@@ -1,5 +1,6 @@
 package com.usuarios.security.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -14,10 +15,9 @@ public class UserInfo {
     private byte age;
     private String user_role;
 
-
+    @JsonBackReference
     @OneToOne
     @JoinColumn(name = "user_credential_id")
-    @JsonManagedReference
     private UserCredentials credentials;
 
 

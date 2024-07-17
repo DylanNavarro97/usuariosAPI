@@ -29,8 +29,8 @@ public class UserInfoController {
     }
 
     @GetMapping("/{id}")
-    public UserInfo getUserById(@PathVariable Long id) throws CustomException {
-        return userInfoService.getUserInfoById(id);
+    public ResponseEntity<UserInfo> getUserById(@PathVariable Long id) throws CustomException {
+        return new ResponseEntity<UserInfo>(userInfoService.getUserInfoById(id), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")

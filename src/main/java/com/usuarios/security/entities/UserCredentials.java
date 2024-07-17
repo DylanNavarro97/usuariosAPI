@@ -1,6 +1,7 @@
 package com.usuarios.security.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,8 +13,8 @@ public class UserCredentials {
     private String username;
     private String password;
 
+    @JsonManagedReference
     @OneToOne(mappedBy = "credentials", cascade = CascadeType.ALL)
-    @JsonBackReference
     private UserInfo userInfo;
 
     public Long getId() {

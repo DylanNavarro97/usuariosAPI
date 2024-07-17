@@ -42,11 +42,13 @@ public class UserInfoService {
     }
 
     public UserInfo getUserInfoById(Long id) throws CustomException {
-        return userInfoRepo.findById(id).orElseThrow(() -> new CustomException("No se encontró el usuario con id: " + id));
+        return userInfoRepo.findById(id)
+                .orElseThrow(() -> new CustomException(new ResponseDto("404", "No se encontro ninguna informacion de usuario con la id: " + id)));
     }
 
     public UserInfo updateUserInfo(UserInfo updatedUserInfo, Long id) throws CustomException {
-        UserInfo foundUserInfo = userInfoRepo.findById(id).orElseThrow(() -> new CustomException("No se encontró el usuario con id: " + id));
+        UserInfo foundUserInfo = userInfoRepo.findById(id)
+                .orElseThrow(() -> new CustomException(new ResponseDto("404", "No se encontro ninguna informacion de usuario con la id: " + id)));
         foundUserInfo.setName(updatedUserInfo.getName());
         foundUserInfo.setLastname(updatedUserInfo.getLastname());
         foundUserInfo.setLocation(updatedUserInfo.getLocation());
@@ -55,10 +57,9 @@ public class UserInfoService {
     }
 
     public String deleteUserInfo(Long id) throws CustomException {
-        UserInfo userInfo = userInfoRepo.findById(id).orElseThrow(() -> new CustomException("No se encontró el usuario con id: " + id));
+        UserInfo userInfo = userInfoRepo.findById(id)
+                .orElseThrow(() -> new CustomException("No se encontró el usuario con id: " + id));
         userInfoRepo.delete(userInfo);
         return "El usuario con id " + id + " fue borrado correctamente";
     }
-
-
 }
